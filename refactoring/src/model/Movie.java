@@ -1,29 +1,38 @@
 package model;
 
 public class Movie {
-    public static final int CHILDRENS = 2;
-    public static final int REGULAR = 0;
-    public static final int NEW_RELEASE = 1;
+	//DefaultPrice has dayFees : 1, dayLimits = 1, fees = 2
+	//private Price defaultPrice = new DefaultPrice(1, 1, 2);
+
+    public final static Price CHILDRENS = new DefaultPrice(1.5, 3, 1.5); //change it to Price 
+    public final static Price REGULAR = new DefaultPrice(1.5, 2, 2); // change it to price
+    public final static Price NEW_RELEASE = new DefaultPrice(3, 0, 0); // change it to price
   
     private String _title;
-    private int _priceCode;
+    private Price _price; // Price _price;
   
-    public Movie(String title,int priceCode)
+    public Movie(String title,Price price) //Price price
     {
 	_title=title;
-	_priceCode=priceCode;
+	_price=price; //_price = price.clone();
     }
-    public int getPriceCode()
+    public Price getPrice()
     {
-	return _priceCode;
+	return _price; //return _price;
     }
-    public void setPriceCode(int priceCode)
+    public void setPriceCode(Price price) //Price price
     {
-	_priceCode=priceCode;
+	_price=price; //_price = price.clone();
     }
     public String getTitle()
     {
 	return _title;
     }
-
+    
+    public int getFrequentRentalPoints(int daysRented) {
+		if( (getPrice()== Movie.NEW_RELEASE) && (daysRented > 1)) 
+		    return 2 ;
+		
+		return 1 ;
+    }
 }
