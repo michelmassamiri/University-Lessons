@@ -16,7 +16,7 @@ class CustomersTest {
 		Rental rental_2 = new Rental(reineDesNeiges, 7);
 		Rental rental_3 = new Rental(starWarsIII, 4);
 		
-		Customers customer = new Customers("bob");
+		Customer customer = new Customer("bob");
 		customer.addRental(rental_1);
 		customer.addRental(rental_2);
 		customer.addRental(rental_3);

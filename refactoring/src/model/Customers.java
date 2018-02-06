@@ -1,8 +1,8 @@
 package model;
 
 @Deprecated
-public class Customer extends Customers {
-	public Customer(String name) {
+public class Customers extends Customer {
+	public Customers(String name) {
 		super(name);
 	}
 }
