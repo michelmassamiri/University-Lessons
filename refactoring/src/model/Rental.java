@@ -3,11 +3,13 @@ package model;
 public class Rental {
     private Movie _movie;
     private int _daysRented;
+    private Price _pricing;
     
     public Rental(Movie movie, int daysRented)
     {
 	_movie=movie;
 	_daysRented=daysRented;
+	_pricing = (Price)_movie.getPrice().clone();
     }
     public int getDaysRented()
     {
@@ -16,6 +18,10 @@ public class Rental {
     public Movie getMovie()
     {
 	return _movie;
+    }
+    
+    public double getPricing() {
+    	return _pricing.price(_daysRented);
     }
     
     //calculer les points fidelites

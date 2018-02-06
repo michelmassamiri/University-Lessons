@@ -29,10 +29,4 @@ public class Movie {
 	return _title;
     }
     
-    public int getFrequentRentalPoints(int daysRented) {
-		if( (getPrice()== Movie.NEW_RELEASE) && (daysRented > 1)) 
-		    return 2 ;
-		
-		return 1 ;
-    }
 }
