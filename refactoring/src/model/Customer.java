@@ -58,5 +58,21 @@ public class Customer
 	return result;
 	 
     }
+    
+    public String statementHTML() {
+    	StringBuffer str = new StringBuffer();
+    	
+    	str.append("<html><body>");
+    	str.append("<H1>Rental Record for " + getName()+ "<BR>\n");
+    	
+    	for(Rental each : _rentals)
+    		str.append("\t" + "<P>" + each.getMovie().getTitle()+"\t"+ each.getPricing() + "</P>" + "<BR>\n");    	
+    	
+    	str.append("<P>Amount owned is " + getTotalAmount() + "</P>" + "<BR>\n");
+    	str.append("<P>You earned " + getFreqPointTotal() + " frequent renter points" + "</P>" + "<BR>\n");
+    	
+    	str.append("</body></html>");
+    	return str.toString();
+    }
 }
  
