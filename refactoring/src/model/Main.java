@@ -16,8 +16,10 @@ public class Main {
 		customer.addRental(rental_2);
 		customer.addRental(rental_3);
 		
-		System.out.println(customer.statement());
-		System.out.println(customer.statementHTML());
+		TextStatment textBuilder = new TextStatment();
+		customer.statement(textBuilder);
+		
+		System.out.println(textBuilder.getResult());
 		
 	}
 

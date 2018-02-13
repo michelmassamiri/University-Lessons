@@ -21,14 +21,22 @@ public class CustomersTest {
 		customer.addRental(rental_2);
 		customer.addRental(rental_3);
 		
+		TextStatment textBuilder = new TextStatment();
+		customer.statement(textBuilder);
+		
+		HTMLStatment htmlBuilder = new HTMLStatment();
+		customer.statement(htmlBuilder);
 
 		assertEquals("Rental Record for bob\n" + 
-				"	Rogue One	15.0 \n" + 
-				"	Reine des neiges	7.5 \n" + 
-				"	Star Wars III	5.0 \n" + 
+				"	Rogue One	15.0\n" + 
+				"	Reine des neiges	7.5\n" + 
+				"	Star Wars III	5.0\n" + 
 				"Amount owned is 27.5\n" + 
-				"You earned 4 frequent renter points"
-				, customer.statement());
+				"You earned 4.0 frequent renter points"
+				, textBuilder.getResult());
+		
+		assertEquals("<html><body><H1>Rental Record for bob<BR><EM><P>Rogue One	15.0</P><BR><EM><P>Reine des neiges	7.5</P><BR><EM><P>Star Wars III	5.0</P><BR><P>Amount owned is 27.5</P><BR><P>You earned 4.0 frequent renter points</P><BR></body></html>", htmlBuilder.getResult());
+		
 	}
 
 }

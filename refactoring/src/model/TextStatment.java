@@ -1,14 +1,9 @@
 package model;
 
-public class TextStatment implements StatmentBuilder {
-	private StringBuffer str;
+public class TextStatment extends StringBuilder {
 	
 	public TextStatment() {
 		str = new StringBuffer();
-	}
-	
-	public void buildStatment() {
-		
 	}
 		
 	public void addUserName(String userName) {
@@ -27,6 +22,7 @@ public class TextStatment implements StatmentBuilder {
 		str.append("You earned " + freqTotalPoints + " frequent renter points");
 	}
 	
-	public void finishStatment() {
+	public String getResult() {
+		return str.toString();
 	}
 }

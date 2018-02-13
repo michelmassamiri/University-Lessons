@@ -41,22 +41,19 @@ public class Customer
     	return totalAmount ;
     }
     
-    public String statement()
+    public void statement(StatmentBuilder builder)
     {
-	String result = "Rental Record for "+getName()+"\n";
-	
-	for(Rental each : _rentals) {
-		result +="\t" + each.getMovie().getTitle()+"\t"+
-			    String.valueOf(each.getPricing()) +" \n";
-	}
-
-	result += "Amount owned is " + String.valueOf(getTotalAmount()) +
-	    "\n";
-	result += "You earned " + String.valueOf(getFreqPointTotal()) +
-	    " frequent renter points";
-	
-	return result;
-	 
+    	builder.beginStatment();
+    	builder.addUserName(getName());
+    	
+    	for(Rental each: _rentals) {
+    		builder.addRentalStatment(each.getMovie().getTitle(), each.getPricing());
+    	}
+    	
+    	builder.addAmountOwned(getTotalAmount());
+    	builder.addFreqTotalPoints(getFreqPointTotal());
+    	
+    	builder.endStatment();
     }
     
     public String statementHTML() {
