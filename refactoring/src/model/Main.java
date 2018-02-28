@@ -1,6 +1,20 @@
 package model;
 
-public class Main {
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+
+public class Main extends Application {
+	
+	public static Scene scene;
+	
+	public void start(Stage primaryStage) {
+        primaryStage.setTitle("Hello World!");
+        primaryStage.setScene(scene);
+        primaryStage.show();		
+	}
+	
 
 	public static void main(String[] args) {
 		Movie rougueOne = new Movie("Rogue One", Movie.NEW_RELEASE) ;
@@ -16,11 +30,12 @@ public class Main {
 		customer.addRental(rental_2);
 		customer.addRental(rental_3);
 		
-		TextStatment textBuilder = new TextStatment();
-		customer.statement(textBuilder);
+		//TextStatment textBuilder = new TextStatment();
+		JavaFXStatment fxbuilder = new JavaFXStatment();
+		customer.statement(fxbuilder);
 		
-		System.out.println(textBuilder.getResult());
-		
+		scene = fxbuilder.getResult();
+		launch(args);
 	}
 
 }
