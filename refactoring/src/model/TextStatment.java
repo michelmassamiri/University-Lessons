@@ -19,7 +19,7 @@ public class TextStatment extends StringBuilder {
 	}
 	
 	public void addFreqTotalPoints(double freqTotalPoints, String message) {
-		str.append("You earned " + freqTotalPoints + " frequent renter points");
+		str.append(message + freqTotalPoints + " frequent renter points");
 	}
 	
 	public String getResult() {

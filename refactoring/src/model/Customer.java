@@ -44,14 +44,14 @@ public class Customer
     public void statement(StatmentBuilder builder)
     {
     	builder.beginStatment();
-    	builder.addUserName(getName());
+    	builder.addUserName(getName(), "Rental Record for ");
     	
     	for(Rental each: _rentals) {
     		builder.addRentalStatment(each.getMovie().getTitle(), each.getPricing());
     	}
     	
-    	builder.addAmountOwned(getTotalAmount());
-    	builder.addFreqTotalPoints(getFreqPointTotal());
+    	builder.addAmountOwned(getTotalAmount(), "Amount owned is ");
+    	builder.addFreqTotalPoints(getFreqPointTotal(), "You earned ");
     	
     	builder.endStatment();
     }

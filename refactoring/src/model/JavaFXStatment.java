@@ -36,8 +36,8 @@ public class JavaFXStatment implements StatmentBuilder{
 		
 	}
 	
-	public void addUserName(String userName) {
-        Text header = new Text("Rental Record for "+ userName);
+	public void addUserName(String userName, String message) {
+        Text header = new Text(message+ userName);
         grid.add(header, 0, 0);
 	}
 	
@@ -46,12 +46,12 @@ public class JavaFXStatment implements StatmentBuilder{
         ++index;
 	}
 	
-	public void addAmountOwned(double totalAmount) {
-        col.getChildren().add(new Text("Amount owned is "+ totalAmount));
+	public void addAmountOwned(double totalAmount, String message) {
+        col.getChildren().add(new Text(message + totalAmount));
 	}
 	
-	public void addFreqTotalPoints(double freqTotalPoints) {
-		col.getChildren().add(new Text("You earned "+ freqTotalPoints+ " frequent renter points"));
+	public void addFreqTotalPoints(double freqTotalPoints, String message) {
+		col.getChildren().add(new Text(message + freqTotalPoints+ " frequent renter points"));
 	}
 
 	public void endStatment() {
