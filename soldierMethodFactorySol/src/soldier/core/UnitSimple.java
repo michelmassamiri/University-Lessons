@@ -6,7 +6,7 @@ package soldier.core;
 
 import java.util.Iterator;
 
-public abstract class UnitSimple {
+public abstract class UnitSimple implements Unit {
 
 	private BehaviorSoldier behavior;
 	private String name;
@@ -14,6 +14,18 @@ public abstract class UnitSimple {
 	public UnitSimple(String name, BehaviorSoldier behavior) {
 		this.behavior = behavior;
 		this.name = name;
+	}
+	
+	public void add(Unit unit) throws UnsupportedOperationException {
+		throw new UnsupportedOperationException();
+	}
+	
+	public Unit getChildren(int id) throws UnsupportedOperationException {
+		throw new UnsupportedOperationException();
+	}
+	
+	public void remove(Unit unit) throws UnsupportedOperationException {
+		throw new UnsupportedOperationException();
 	}
 
 	public String getName() {
